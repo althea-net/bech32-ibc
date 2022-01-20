@@ -2,6 +2,7 @@ package bech32ics20
 
 import (
 	"encoding/json"
+	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	"math/rand"
 	"time"
 
@@ -50,9 +51,8 @@ func (am AppModule) RegisterServices(cfg module.Configurator) {
 // NewAppModule creates a new AppModule object
 func NewAppModule(cdc codec.Codec, keeper keeper.Keeper) AppModule {
 	return AppModule{
-		AppModuleBasic: bank.NewAppModuleBasic(cdc),
-
-		keeper: keeper,
+		AppModuleBasic: bank.NewAppModule(cdc, keeper, authkeeper.AccountKeeper{}).AppModuleBasic,
+		keeper:         keeper,
 	}
 }
 

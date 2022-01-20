@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/avast/retry-go v2.6.0+incompatible
-	github.com/cosmos/cosmos-sdk v0.44.3
+	github.com/cosmos/cosmos-sdk v0.44.5
 	github.com/cosmos/ibc-go/v2 v2.0.0
 	github.com/cosmos/relayer v1.0.0
 	github.com/gogo/protobuf v1.3.3
@@ -134,7 +134,6 @@ require (
 )
 
 replace (
-	github.com/cosmos/cosmos-sdk => github.com/osmosis-labs/cosmos-sdk v0.43.0-rc3.0.20211207235417-e8ae64cdef4d
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.2-alpha.regen.4
 	github.com/tendermint/tm-db => github.com/osmosis-labs/tm-db v0.6.5-0.20210911033928-ba9154613417
 	google.golang.org/grpc => google.golang.org/grpc v1.33.2
