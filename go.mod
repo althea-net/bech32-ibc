@@ -3,8 +3,8 @@ module github.com/althea-net/bech32-ibc
 go 1.17
 
 require (
-	github.com/avast/retry-go v2.6.0+incompatible
-	github.com/cosmos/cosmos-sdk v0.45.1
+	github.com/avast/retry-go/v4 v4.0.3
+	github.com/cosmos/cosmos-sdk v0.45.13
 	github.com/cosmos/ibc-go/v3 v3.0.0
 	github.com/cosmos/relayer/v2 v2.0.0-beta7
 	github.com/gogo/protobuf v1.3.3
@@ -19,6 +19,7 @@ require (
 	github.com/tendermint/tendermint v0.34.19
 	github.com/tendermint/tm-db v0.6.6
 	go.uber.org/zap v1.21.0
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa
 	google.golang.org/grpc v1.45.0
 )
@@ -35,7 +36,7 @@ require (
 	github.com/Workiva/go-datastructures v1.0.53 // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
 	github.com/armon/go-metrics v0.3.10 // indirect
-	github.com/avast/retry-go/v4 v4.0.3 // indirect
+	github.com/avast/retry-go v2.6.0+incompatible // indirect
 	github.com/benbjohnson/clock v1.1.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bgentry/speakeasy v0.1.0 // indirect
@@ -150,7 +151,6 @@ require (
 	go.uber.org/multierr v1.8.0 // indirect
 	golang.org/x/crypto v0.0.0-20211215153901-e495a2d5b3d3 // indirect
 	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
