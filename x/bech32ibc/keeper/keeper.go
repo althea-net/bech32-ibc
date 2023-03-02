@@ -7,6 +7,7 @@ import (
 
 	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 	"github.com/cosmos/cosmos-sdk/codec"
+	sdkstore "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
@@ -15,7 +16,7 @@ type (
 		channelKeeper types.ChannelKeeper
 
 		cdc      codec.Codec
-		storeKey sdk.StoreKey
+		storeKey sdkstore.StoreKey
 
 		tk types.TransferKeeper
 	}
@@ -24,7 +25,7 @@ type (
 func NewKeeper(
 	channelKeeper types.ChannelKeeper,
 	cdc codec.Codec,
-	storeKey sdk.StoreKey,
+	storeKey sdkstore.StoreKey,
 	tk types.TransferKeeper,
 ) *Keeper {
 	return &Keeper{

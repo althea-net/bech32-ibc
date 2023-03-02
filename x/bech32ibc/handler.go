@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
 	"github.com/althea-net/bech32-ibc/x/bech32ibc/keeper"
 	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"

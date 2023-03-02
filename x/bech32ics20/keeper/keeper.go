@@ -5,6 +5,7 @@ import (
 
 	"github.com/althea-net/bech32-ibc/x/bech32ics20/types"
 	"github.com/cosmos/cosmos-sdk/codec"
+	sdkstore "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
@@ -19,8 +20,8 @@ type (
 		hrpToChannelMapper     types.Bech32HrpToSourceChannelMap
 		ics20TransferMsgServer types.ICS20TransferMsgServer
 		cdc                    codec.Codec
-		storeKey               sdk.StoreKey
-		memKey                 sdk.StoreKey
+		storeKey               sdkstore.StoreKey
+		memKey                 sdkstore.StoreKey
 	}
 )
 

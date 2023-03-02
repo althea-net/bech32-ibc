@@ -22,7 +22,7 @@ func TestBech32IBCProposalHandler(t *testing.T) {
 		Hrp:           "akash",
 		SourceChannel: "1",
 	}
-	handler := app.GovKeeper.Router().GetRoute(proposal.ProposalRoute())
+	handler := app.GovKeeper.LegacyRouter().GetRoute(proposal.ProposalRoute())
 	require.NotPanics(t, func() {
 		err := handler(ctx, proposal)
 		require.Error(t, err) // error for not existing source channel

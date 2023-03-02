@@ -11,7 +11,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/gov/client/cli"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
 	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 )

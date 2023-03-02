@@ -5,7 +5,7 @@ import (
 	"strings"
 	time "time"
 
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 )
 
 const (
@@ -14,7 +14,6 @@ const (
 
 func init() {
 	govtypes.RegisterProposalType(ProposalTypeUpdateHrpIbcChannel)
-	govtypes.RegisterProposalTypeCodec(&UpdateHrpIbcChannelProposal{}, "osmosis/UpdateHrpIbcChannel")
 }
 
 var _ govtypes.Content = &UpdateHrpIbcChannelProposal{}
