@@ -1,8 +1,8 @@
 package keeper_test
 
 import (
+	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
 )
 
 func (suite *KeeperTestSuite) TestHandleUpdateHrpIbcChannelProposal() {

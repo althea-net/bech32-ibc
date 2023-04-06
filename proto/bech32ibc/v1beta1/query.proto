@@ -7,7 +7,7 @@ import "google/protobuf/duration.proto";
 
 import "bech32ibc/v1beta1/types.proto";
 
-option go_package = "github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types";
+option go_package = "github.com/althea-net/bech32-ibc/x/bech32ibc/types";
 
 service Query {
   // HrpIbcRecords returns to full list of records

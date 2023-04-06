@@ -1,10 +1,10 @@
 package bech32ics20
 
 import (
+	"github.com/althea-net/bech32-ibc/x/bech32ics20/keeper"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ics20/keeper"
 )
 
 // NewHandler returns a handler for "bank" type messages.

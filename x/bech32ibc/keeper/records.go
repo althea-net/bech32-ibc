@@ -3,11 +3,11 @@ package keeper
 import (
 	"fmt"
 
+	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/gogo/protobuf/proto"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
 )
 
 // GetFeeToken returns the fee token record for a specific denom

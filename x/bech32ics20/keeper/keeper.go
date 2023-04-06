@@ -3,11 +3,11 @@ package keeper
 import (
 	"fmt"
 
+	"github.com/althea-net/bech32-ibc/x/bech32ics20/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ics20/types"
 	"github.com/tendermint/tendermint/libs/log"
 )
 

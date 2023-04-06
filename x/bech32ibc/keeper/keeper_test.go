@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"testing"
 
+	"github.com/althea-net/bech32-ibc/app"
+	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/osmosis-labs/bech32-ibc/app"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 )

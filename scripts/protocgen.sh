@@ -29,5 +29,5 @@ Mgoogle/protobuf/any.proto=github.com/cosmos/cosmos-sdk/codec/types:. \
   $(find "${dir}" -maxdepth 1 -name '*.proto')
 done
 
-cp -r ./github.com/osmosis-labs/bech32-ibc/* ./
+cp -r ./github.com/althea-net/bech32-ibc/* ./
 rm -rf ./github.com

@@ -1,10 +1,10 @@
 package keeper
 
 import (
+	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
 
 	abci "github.com/tendermint/tendermint/abci/types"
 )

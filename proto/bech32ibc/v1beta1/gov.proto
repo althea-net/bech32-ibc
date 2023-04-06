@@ -5,7 +5,7 @@ import "gogoproto/gogo.proto";
 import "bech32ibc/v1beta1/types.proto";
 import "google/protobuf/duration.proto";
 
-option go_package = "github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types";
+option go_package = "github.com/althea-net/bech32-ibc/x/bech32ibc/types";
 
 // UpdateHrpIBCRecordProposal is a gov Content type for adding a new record
 // between a bech32 prefix and an IBC (port, channel).

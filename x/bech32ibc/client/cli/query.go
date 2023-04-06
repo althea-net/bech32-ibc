@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/version"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
 	"github.com/spf13/cobra"
 )
 

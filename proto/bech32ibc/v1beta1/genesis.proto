@@ -4,7 +4,7 @@ package bech32ibc.bech32ibc.v1beta1;
 import "gogoproto/gogo.proto";
 import "bech32ibc/v1beta1/types.proto";
 
-option go_package = "github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types";
+option go_package = "github.com/althea-net/bech32-ibc/x/bech32ibc/types";
 
 message GenesisState {
   string nativeHRP = 1 [ (gogoproto.moretags) = "yaml:\"native_hrp\"" ];

@@ -8,7 +8,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
+	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 )
 
 var _ types.QueryServer = Keeper{}

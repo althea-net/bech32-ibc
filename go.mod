@@ -1,4 +1,4 @@
-module github.com/osmosis-labs/bech32-ibc
+module github.com/althea-net/bech32-ibc
 
 go 1.17
 

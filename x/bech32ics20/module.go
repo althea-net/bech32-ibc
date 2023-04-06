@@ -17,7 +17,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/bank/simulation"
 	"github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ics20/keeper"
+	"github.com/althea-net/bech32-ibc/x/bech32ics20/keeper"
 )
 
 var (

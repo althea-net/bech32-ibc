@@ -7,9 +7,9 @@ RUN apk add --no-cache $PACKAGES
 
 WORKDIR /go/src/github.com/osmosis-labs
 
-RUN git clone https://github.com/osmosis-labs/bech32-ibc.git
+RUN git clone https://github.com/althea-net/bech32-ibc.git
 
-WORKDIR /go/src/github.com/osmosis-labs/bech32-ibc
+WORKDIR /go/src/github.com/althea-net/bech32-ibc
 
 RUN git checkout ${VERSION} && make build-linux
 
@@ -18,7 +18,7 @@ FROM alpine:edge
 RUN apk add --no-cache ca-certificates
 WORKDIR /root
 
-COPY --from=build-env /go/src/github.com/osmosis-labs/bech32-ibc/build/bech32ibcd /usr/bin/bech32ibcd
+COPY --from=build-env /go/src/github.com/althea-net/bech32-ibc/build/bech32ibcd /usr/bin/bech32ibcd
 
 #USER bech32ibc
 

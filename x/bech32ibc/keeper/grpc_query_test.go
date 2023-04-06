@@ -1,8 +1,8 @@
 package keeper_test
 
 import (
+	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
 )
 
 func (suite *KeeperTestSuite) TestHrpIbcRecords() {

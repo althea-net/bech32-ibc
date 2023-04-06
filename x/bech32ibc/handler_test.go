@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	simapp "github.com/osmosis-labs/bech32-ibc/app"
-	"github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
+	simapp "github.com/althea-net/bech32-ibc/app"
+	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
 	"github.com/stretchr/testify/require"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 )

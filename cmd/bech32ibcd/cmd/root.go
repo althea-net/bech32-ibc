@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/althea-net/bech32-ibc/app/params"
 	"github.com/cosmos/cosmos-sdk/snapshots"
-	"github.com/osmosis-labs/bech32-ibc/app/params"
 
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
@@ -16,6 +16,7 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
+	"github.com/althea-net/bech32-ibc/app"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/debug"
@@ -34,7 +35,6 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
-	"github.com/osmosis-labs/bech32-ibc/app"
 )
 
 var ChainID string
