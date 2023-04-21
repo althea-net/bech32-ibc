@@ -2,14 +2,13 @@ syntax = "proto3";
 package bech32ibc.bech32ibc.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "bech32ibc/v1beta1/types.proto";
 import "google/protobuf/duration.proto";
 
 option go_package = "github.com/althea-net/bech32-ibc/x/bech32ibc/types";
 
 // UpdateHrpIBCRecordProposal is a gov Content type for adding a new record
 // between a bech32 prefix and an IBC (port, channel).
-// It can be used to add a new record to the set. It can also be
+// It can be used to add a new record to the set. It can also be.
 // used to update the IBC channel to associate with a specific denom. If channel
 // is set to "", it will remove the record from the set.
 message UpdateHrpIbcChannelProposal {
