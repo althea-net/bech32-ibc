@@ -36,45 +36,6 @@ func (k Keeper) SetNativeHrp(ctx sdk.Context, hrp string) error {
 	return nil
 }
 
-// ValidateFeeToken validates that a fee token record is valid
-// It checks:
-// - The HRP is valid
-// - The HRP is not for the chain's native prefix
-// - Check that IBC channels and ports are real
-func (k Keeper) ValidateHrpIbcRecord(ctx sdk.Context, record types.HrpIbcRecord) error {
-	// TODO: this function is not used in any of the places
-	err := types.ValidateHrp(record.Hrp)
-	if err != nil {
-		return err
-	}
-
-	nativeHrp, err := k.GetNativeHrp(ctx)
-	if err != nil {
-		return err
-	}
-
-	if record.Hrp == nativeHrp {
-		return sdkerrors.Wrap(types.ErrInvalidHRP, "cannot set a record for the chain's native prefix")
-	}
-
-	_, found := k.channelKeeper.GetChannel(ctx, k.tk.GetPort(ctx), record.SourceChannel)
-	if !found {
-		return sdkerrors.Wrap(types.ErrInvalidIBCData, fmt.Sprintf("channel not found: %s", record.SourceChannel))
-	}
-
-	return nil
-}
-
-// GetHrpIbcRecord returns the hrp ibc record for a specific hrp
-func (k Keeper) GetHrpSourceChannel(ctx sdk.Context, hrp string) (string, error) {
-	record, err := k.GetHrpIbcRecord(ctx, hrp)
-	if err != nil {
-		return "", err
-	}
-
-	return record.SourceChannel, nil
-}
-
 // GetHrpIbcRecord returns the hrp ibc record for a specific hrp
 func (k Keeper) GetHrpIbcRecord(ctx sdk.Context, hrp string) (types.HrpIbcRecord, error) {
 	store := ctx.KVStore(k.storeKey)
@@ -98,7 +59,7 @@ func (k Keeper) setHrpIbcRecord(ctx sdk.Context, hrpIbcRecord types.HrpIbcRecord
 	store := ctx.KVStore(k.storeKey)
 	prefixStore := prefix.NewStore(store, types.HrpIBCRecordStorePrefix)
 
-	if hrpIbcRecord.SourceChannel == "" {
+	if hrpIbcRecord.FungibleSourceChannel == "" && hrpIbcRecord.NftSourceChannel == "" {
 		if prefixStore.Has([]byte(hrpIbcRecord.Hrp)) {
 			prefixStore.Delete([]byte(hrpIbcRecord.Hrp))
 		}

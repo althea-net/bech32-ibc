@@ -7,10 +7,10 @@ import "google/protobuf/duration.proto";
 option go_package = "github.com/althea-net/bech32-ibc/x/bech32ibc/types";
 
 // UpdateHrpIBCRecordProposal is a gov Content type for adding a new record
-// between a bech32 prefix and an IBC (port, channel).
+// between a bech32 prefix and IBC (port, channel) for fungible and non-fungible tokens.
 // It can be used to add a new record to the set. It can also be.
-// used to update the IBC channel to associate with a specific denom. If channel
-// is set to "", it will remove the record from the set.
+// used to update the IBC channel to associate with a specific denom. If both channels
+// are set to "", it will remove the record from the set.
 message UpdateHrpIbcChannelProposal {
   option (gogoproto.equal) = true;
   option (gogoproto.goproto_getters) = false;
@@ -19,13 +19,7 @@ message UpdateHrpIbcChannelProposal {
   string title = 1 [ (gogoproto.moretags) = "yaml:\"title\"" ];
   string description = 2 [ (gogoproto.moretags) = "yaml:\"description\"" ];
   string hrp = 3 [ (gogoproto.moretags) = "yaml:\"hrp\"" ];
-  string source_channel = 4
-      [ (gogoproto.moretags) = "yaml:\"source_channel\"" ];
-  uint64 ics_to_height_offset = 5;
-  google.protobuf.Duration ics_to_time_offset = 6 [
-    (gogoproto.nullable) = false,
-    (gogoproto.stdduration) = true,
-    (gogoproto.jsontag) = "to_time_offset,omitempty",
-    (gogoproto.moretags) = "yaml:\"to_time_offset\""
-  ];
+  string fungible_source_channel = 4
+      [ (gogoproto.moretags) = "yaml:\" fungible_source_channel\"" ];
+  string nft_source_channel = 5 [ (gogoproto.moretags) = "yaml:\"nft_source_channel\"" ];
 }

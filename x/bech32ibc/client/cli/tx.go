@@ -1,8 +1,6 @@
 package cli
 
 import (
-	"time"
-
 	"github.com/cosmos/cosmos-sdk/client/tx"
 
 	"github.com/spf13/cobra"
@@ -14,11 +12,6 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
 	"github.com/althea-net/bech32-ibc/x/bech32ibc/types"
-)
-
-var (
-	IcsToHeightOffset  = "ics-to-height-offset"
-	IcsToTimeoutOffset = "ics-to-timeout-offset"
 )
 
 func NewTxCmd() *cobra.Command {
@@ -39,9 +32,9 @@ func NewTxCmd() *cobra.Command {
 
 func NewCmdSubmitUpdateHrpIbcRecordProposal() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-hrp-ibc-record [human-readable-prefix] [channel-id]",
-		Args:  cobra.ExactArgs(2),
-		Short: "Submit an update to map a bech32 prefix to a channel id",
+		Use:   "update-hrp-ibc-record [human-readable-prefix] [fungible-channel-id] [nft-channel-id]",
+		Args:  cobra.ExactArgs(3),
+		Short: "Submit an update to map a bech32 prefix to fungible and nft channel ids",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -49,7 +42,8 @@ func NewCmdSubmitUpdateHrpIbcRecordProposal() *cobra.Command {
 			}
 
 			hrp := args[0]
-			channelId := args[1]
+			fungibleChannelId := args[1]
+			nftChannelId := args[2]
 
 			title, err := cmd.Flags().GetString(cli.FlagTitle)
 			if err != nil {
@@ -72,18 +66,7 @@ func NewCmdSubmitUpdateHrpIbcRecordProposal() *cobra.Command {
 				return err
 			}
 
-			heightOffset, err := cmd.Flags().GetUint64(IcsToHeightOffset)
-			if err != nil {
-				return err
-			}
-
-			durationOffsetText, err := cmd.Flags().GetString(IcsToTimeoutOffset)
-			if err != nil {
-				return err
-			}
-			durationOffset, err := time.ParseDuration(durationOffsetText)
-
-			content := types.NewUpdateHrpIBCRecordProposal(title, description, hrp, channelId, heightOffset, durationOffset)
+			content := types.NewUpdateHrpIBCRecordProposal(title, description, hrp, fungibleChannelId, nftChannelId)
 
 			msg, err := govtypes.NewMsgSubmitProposal(content, deposit, from)
 			if err != nil {
@@ -101,8 +84,6 @@ func NewCmdSubmitUpdateHrpIbcRecordProposal() *cobra.Command {
 	cmd.Flags().String(cli.FlagTitle, "", "title of proposal")
 	cmd.Flags().String(cli.FlagDescription, "", "description of proposal")
 	cmd.Flags().String(cli.FlagDeposit, "", "deposit of proposal")
-	cmd.Flags().Uint64(IcsToHeightOffset, 0, "timeout for IBC routed packets through this channel, in blocks. A value of X here, means that if a packet is attempted to get relayed at counter-party chain height of N, and fails to be ack'd by height N+X, the packet will bounce back to the source chain.")
-	cmd.Flags().String(IcsToTimeoutOffset, "", "the offset of timeout to expire on target chain")
 	flags.AddTxFlagsToCmd(cmd)
 	cmd.MarkFlagRequired(cli.FlagTitle)
 	cmd.MarkFlagRequired(cli.FlagDescription)

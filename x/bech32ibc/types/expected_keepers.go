@@ -14,3 +14,7 @@ type TransferKeeper interface {
 	// GetPort returns the portID for the transfer module. Used in ExportGenesis
 	GetPort(ctx sdk.Context) string
 }
+
+type NftTransferKeeper interface {
+	GetPort(ctx sdk.Context) string
+}
