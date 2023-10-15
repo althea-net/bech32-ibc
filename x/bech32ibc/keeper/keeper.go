@@ -18,7 +18,8 @@ type (
 		cdc      codec.Codec
 		storeKey sdkstore.StoreKey
 
-		tk types.TransferKeeper
+		transferKeeper    types.TransferKeeper
+		nftTransferKeeper types.NftTransferKeeper
 	}
 )
 
@@ -26,13 +27,15 @@ func NewKeeper(
 	channelKeeper types.ChannelKeeper,
 	cdc codec.Codec,
 	storeKey sdkstore.StoreKey,
-	tk types.TransferKeeper,
+	transferKeeper types.TransferKeeper,
+	nftTransferKeeper types.NftTransferKeeper,
 ) *Keeper {
 	return &Keeper{
-		channelKeeper: channelKeeper,
-		cdc:           cdc,
-		storeKey:      storeKey,
-		tk:            tk,
+		channelKeeper:     channelKeeper,
+		cdc:               cdc,
+		storeKey:          storeKey,
+		transferKeeper:    transferKeeper,
+		nftTransferKeeper: nftTransferKeeper,
 	}
 }
 

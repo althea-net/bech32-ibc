@@ -2,10 +2,8 @@ package types
 
 import (
 	"fmt"
-	"strings"
-	time "time"
-
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
+	"strings"
 )
 
 const (
@@ -18,14 +16,13 @@ func init() {
 
 var _ govtypes.Content = &UpdateHrpIbcChannelProposal{}
 
-func NewUpdateHrpIBCRecordProposal(title, description, hrp, sourceChannel string, toHeightOffset uint64, toTimeOffset time.Duration) govtypes.Content {
+func NewUpdateHrpIBCRecordProposal(title, description, hrp, fungibleSourceChannel string, nftSourceChannel string) govtypes.Content {
 	return &UpdateHrpIbcChannelProposal{
-		Title:             title,
-		Description:       description,
-		Hrp:               hrp,
-		SourceChannel:     sourceChannel,
-		IcsToHeightOffset: toHeightOffset,
-		IcsToTimeOffset:   toTimeOffset,
+		Title:                 title,
+		Description:           description,
+		Hrp:                   hrp,
+		FungibleSourceChannel: fungibleSourceChannel,
+		NftSourceChannel:      nftSourceChannel,
 	}
 }
 
@@ -44,19 +41,17 @@ func (p *UpdateHrpIbcChannelProposal) ValidateBasic() error {
 	if err != nil {
 		return err
 	}
-	if p.IcsToHeightOffset == 0 && p.IcsToTimeOffset == 0 {
-		return ErrInvalidOffsetHeightTimeout
-	}
 	return ValidateHrp(p.Hrp)
 }
 
 func (p UpdateHrpIbcChannelProposal) String() string {
 	var b strings.Builder
 	b.WriteString(fmt.Sprintf(`Update HRP IBC Channel Proposal:
-  Title:          %s
-  Description:    %s
-  HRP:            %s
-  Source Channel: %s
-`, p.Title, p.Description, p.Hrp, p.SourceChannel))
+  Title:                   %s
+  Description:             %s
+  HRP:                     %s
+  Fungible Source Channel: %s
+  NFT Source Chanell:      %s
+`, p.Title, p.Description, p.Hrp, p.FungibleSourceChannel, p.NftSourceChannel))
 	return b.String()
 }

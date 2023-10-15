@@ -15,16 +15,25 @@ func (k Keeper) HandleUpdateHrpIbcChannelProposal(ctx sdk.Context, p *types.Upda
 		return err
 	}
 
-	_, found := k.channelKeeper.GetChannel(ctx, k.tk.GetPort(ctx), p.SourceChannel)
+	// Check that the fungible channel exists unless it's empty (in which case it will be "unset" in the record)
+	if p.FungibleSourceChannel != "" {
+		_, fungibleChannelFound := k.channelKeeper.GetChannel(ctx, k.transferKeeper.GetPort(ctx), p.FungibleSourceChannel)
+		if !fungibleChannelFound {
+			return sdkerrors.Wrap(types.ErrInvalidIBCData, fmt.Sprintf("fungible channel not found: %s", p.FungibleSourceChannel))
+		}
+	}
 
-	if !found {
-		return sdkerrors.Wrap(types.ErrInvalidIBCData, fmt.Sprintf("channel not found: %s", p.SourceChannel))
+	// Check that the nft channel exists unless it's empty (in which case it will be "unset" in the record)
+	if p.NftSourceChannel != "" {
+		_, nftChannelFound := k.channelKeeper.GetChannel(ctx, k.nftTransferKeeper.GetPort(ctx), p.NftSourceChannel)
+		if !nftChannelFound {
+			return sdkerrors.Wrap(types.ErrInvalidIBCData, fmt.Sprintf("nft channel not found: %s", p.NftSourceChannel))
+		}
 	}
 
 	return k.setHrpIbcRecord(ctx, types.HrpIbcRecord{
-		Hrp:               p.Hrp,
-		SourceChannel:     p.SourceChannel,
-		IcsToHeightOffset: p.IcsToHeightOffset,
-		IcsToTimeOffset:   p.IcsToTimeOffset,
+		Hrp:                   p.Hrp,
+		FungibleSourceChannel: p.FungibleSourceChannel,
+		NftSourceChannel:      p.NftSourceChannel,
 	})
 }
