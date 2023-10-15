@@ -86,12 +86,6 @@ func (m *HrpIbcRecord) GetIcsToTimeOffset() time.Duration {
 	return 0
 }
 
-func init() {
-	proto.RegisterType((*HrpIbcRecord)(nil), "bech32ibc.bech32ibc.v1beta1.HrpIbcRecord")
-}
-
-func init() { proto.RegisterFile("bech32ibc/v1beta1/types.proto", fileDescriptor_95408f5fe13d0f7d) }
-
 var fileDescriptor_95408f5fe13d0f7d = []byte{
 	// 381 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x91, 0xc1, 0x8a, 0xda, 0x40,
